@@ -5,13 +5,15 @@ var fs = require('fs');
 var path = require('path');
 var AdmZip = require("adm-zip");
 var utils = require("./utilities");
-var xcode = require("xcode");
+//var xcode = require("xcode");
 
 var constants = {
   googleServices: "google-services"
 };
 
 module.exports = function(context) {
+  var xcode = context.requireCordovaModule("xcode");
+  
   function fromDir(startPath, filter, rec, multiple) {
     if (!fs.existsSync(startPath)) {
       console.log('no dir ', startPath);
